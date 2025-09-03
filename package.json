@@ -1,0 +1,30 @@
+{
+  "name": "lucid-growth-email-analyzer",
+  "version": "1.0.0",
+  "description": "Email analysis system with IMAP integration for receiving chain and ESP detection",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run start:dev",
+    "frontend:dev": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "install": "node install.js",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm run start:prod",
+    "deploy:check": "node deploy-setup.js",
+    "deploy:backend": "cd backend && npm run build",
+    "deploy:frontend": "echo 'Frontend ready for Vercel deployment'"
+  },
+  "keywords": [
+    "email",
+    "imap",
+    "analysis",
+    "esp",
+    "receiving-chain"
+  ],
+  "author": "LucidGrowth",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
