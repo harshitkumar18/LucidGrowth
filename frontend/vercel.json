@@ -1,15 +1,10 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/api/(.*)", "dest": "https://lucidgrowth-production.up.railway.app/api/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
