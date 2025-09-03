@@ -8,7 +8,7 @@
     "backend:dev": "cd backend && npm run start:dev",
     "frontend:dev": "cd frontend && npm start",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "install": "node install.js",
+    "install": "echo 'Skipping root install script in production'",
     "build": "cd frontend && npm run build",
     "start": "cd backend && npm run start:prod",
     "deploy:check": "node deploy-setup.js",
