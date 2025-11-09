@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
+// okkbye
 export class EmailAnalysisService {
   private readonly logger = new Logger(EmailAnalysisService.name);
 
