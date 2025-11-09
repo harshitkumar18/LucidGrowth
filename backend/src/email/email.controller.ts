@@ -2,6 +2,7 @@ import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { EmailService } from './email.service';
 import { Email } from '../database/schemas/email.schema';
 
+// directpull changes in featurebranch
 @Controller('emails')
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
