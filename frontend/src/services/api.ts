@@ -1,7 +1,8 @@
 // Simple fetch-based API service (no external dependencies)
 import { Email, SystemStatus } from '../types/email';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+// Use same-origin /api for production (Vercel rewrite), fallback to localhost for dev
+const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
 
 // Simple fetch-based API functions
 async function apiRequest(endpoint: string, options: RequestInit = {}) {
@@ -15,7 +16,14 @@ async function apiRequest(endpoint: string, options: RequestInit = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    const errorText = await response.text();
+    throw new Error(`HTTP error! status: ${response.status}, response: ${errorText}`);
+  }
+
+  const contentType = response.headers.get('content-type');
+  if (!contentType || !contentType.includes('application/json')) {
+    const text = await response.text();
+    throw new Error(`Expected JSON but got ${contentType}. Response: ${text.substring(0, 200)}...`);
   }
 
   return response.json();

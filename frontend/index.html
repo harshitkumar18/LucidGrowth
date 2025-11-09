@@ -227,8 +227,10 @@
         // Simple Email Analyzer Frontend
         class EmailAnalyzer {
             constructor() {
-                // Prefer same-origin /api so Vercel can proxy to Railway; fallback to env or localhost
-                this.apiBaseUrl = '/api';
+                // Use localhost for local dev, /api for production (Vercel rewrite)
+                this.apiBaseUrl = window.location.hostname === 'localhost' 
+                    ? 'http://localhost:3001/api' 
+                    : '/api';
                 if (window.REACT_APP_API_URL) {
                     this.apiBaseUrl = window.REACT_APP_API_URL;
                 }
