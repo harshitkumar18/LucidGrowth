@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 // ramram
 
-export type EmailDocument = Email & Document;
+export type EmailDocument = Email & 
 
 @Schema({ timestamps: true })
 export class Email {
