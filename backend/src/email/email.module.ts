@@ -5,6 +5,7 @@ import { EmailService } from './email.service';
 import { EmailController } from './email.controller';
 import { EmailAnalysisService } from './email-analysis.service';
 
+// okaythistimeihavetakenpulldirectly
 @Module({
   imports: [
     MongooseModule.forFeature([
